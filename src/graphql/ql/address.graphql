@@ -1,0 +1,27 @@
+query address($id: String!) {
+    address(id: $id) {
+        ...addressDetails
+    }
+}
+
+query addresses($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting ) {
+    addresses(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort) {
+        count
+        perPage
+        page
+        items{
+            ...addressDetails
+        }
+    }
+}
+
+
+
+
+mutation updateAddress($id:Int!, $data: AddressClassTypeUpdate!) {
+    address:updateAddress(id:$id, data: $data) {
+        ...addressDetails
+    }
+}
+
+

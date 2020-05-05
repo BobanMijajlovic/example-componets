@@ -1,0 +1,50 @@
+query clients($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ){
+    clients:clients(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...clientDetails
+            addresses{
+                ...addressDetails
+            }
+            contacts{
+                ...contactDetails
+            }
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query client($id: String!) {
+    client:client(id: $id) {
+        ...clientDetails
+        addresses{
+            ...addressDetails
+        }
+        contacts{
+            ...contactDetails
+        }
+    }
+}
+
+
+
+mutation insertClient($data: ClientClassTypeInsert!) {
+    client: insertClient(data: $data){
+        ...clientDetails
+        addresses{
+            ...addressDetails
+        }
+        contacts{
+            ...contactDetails
+        }
+    }
+}
+
+
+mutation updateClient($id:Int!, $data: ClientClassTypeUpdate!) {
+    client:updateClient(id:$id, data: $data) {
+        ...clientDetails
+    }
+}

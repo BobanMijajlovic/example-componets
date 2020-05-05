@@ -1,0 +1,31 @@
+query contacts($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting) {
+    contacts(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort) {
+        items{
+            ...contactDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query contact($id: String!) {
+    contact(id: $id) {
+        ...contactDetails
+    }
+}
+
+mutation insertContact($data: ContactClassTypeInsert!){
+    contact:insertContact(data: $data) {
+        ...contactDetails
+    }
+}
+
+
+mutation updateContact($id:Int!, $data: ContactClassTypeUpdate!) {
+    contact:updateContact(id:$id, data: $data) {
+        ...contactDetails
+    }
+}
+
+

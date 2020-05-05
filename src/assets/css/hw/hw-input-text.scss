@@ -1,0 +1,234 @@
+
+.hw-input-text-root {
+  font-size: $c-font-input-size;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  //margin-bottom: 15px;
+  position: relative;
+
+  &.readOnly {
+    .hw-label {
+      color: theme-var($--color-primary-font);
+      }
+
+    .hw-input-text {
+      background: #fbfbfb;
+      }
+    }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 12px;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-size: 12px;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-size: 12px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: 12px;
+  }
+
+  &:first-child {
+    //margin-top: 0px;
+    @media screen and (max-width: $c-mobile-version-width) {
+      //margin-top: 2px;
+      }
+    }
+
+  .hw-input-group {
+    position: relative;
+
+    .hw-input-icon {
+      ~ .hw-input-text {
+        padding-left: 35px;
+        }
+      }
+
+    .hw-input-icon-action {
+      ~ .hw-input-text {
+        padding-right: 35px;
+        }
+      }
+
+    .hw-input-icon {
+      position: absolute;
+      cursor: pointer;
+      top: 12px;
+      left: 7px;
+      font-size: 20px;
+      color: theme-var($--color-primary);
+
+      &:hover {
+        transform: scale(1.2);
+        }
+      }
+
+    .hw-input-icon-action {
+      position: absolute;
+      top: 12px;
+      right: 7px;
+      font-size: 20px;
+      color: theme-var($--color-primary);
+      cursor: pointer;
+
+      &.danger {
+        color: theme-var($--color-danger);
+        opacity: 0.5;
+        }
+
+      &:hover {
+        transform: scale(1.2);
+        }
+      }
+    }
+
+  &.lined-version {
+
+    &.mini {
+      width: 50%;
+
+      .hw-input-text {
+        height: auto;
+        }
+      }
+
+    .hw-input-text {
+      background: transparent;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      border-radius: 0px;
+
+      &:focus {
+        box-shadow: 0 2px 1px -1px theme-var($--color-primary);
+        outline: none;
+        }
+      }
+
+    &.error {
+      .hw-input-text {
+        &:focus {
+          box-shadow: 0 2px 1px -1px theme-var($--color-error);
+          }
+        }
+      }
+    }
+
+  .hw-input-text {
+    color: theme-var($--color-primary-font);
+    background-clip: padding-box;
+    box-shadow: none;
+    font-size: 16px;
+    width: 100%;
+    height: $c-component-height;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    @include component-border-basic;
+
+    &:focus {
+      box-shadow: 0 0 0 1px theme-var($--color-primary);
+      outline: none;
+      }
+    }
+
+
+  &.error {
+    .hw-input-text {
+      color: theme-var($--color-error);
+      border-color: theme-var($--color-error);
+
+      &:focus {
+        box-shadow: 0 0 0 1px theme-var($--color-error);
+        }
+      }
+    }
+
+
+  }
+
+.align-left {
+  input {
+    text-align: left;
+    }
+  }
+
+.large-input-font {
+  input {
+    max-width: 200px !important;
+    font-size: 26px !important;
+    height: 60px !important;
+    padding-right: 4px;
+    }
+  }
+
+
+.align-center {
+  input {
+    text-align: center;
+    }
+  }
+
+.align-right {
+  input {
+    text-align: right;
+    }
+  }
+
+.bold {
+  input {
+    font-weight: bold;
+    }
+  }
+
+.hw-input-text-date-picker {
+  position: relative;
+
+  .hw-input-text-root {
+
+    &.readOnly {
+      * {
+        cursor: default;
+        color: inherit;
+        opacity: 1;
+        }
+      }
+
+    }
+  }
+
+.autocomplete-dropdown {
+  @include box-shadow-open;
+  position: absolute;
+  background-color: white;
+  width: 110%;
+  z-index: 25;
+  /* top: 50px;*/
+  overflow-y: auto;
+  transform: rotateY(0deg);
+  transition: transform 0.5s;
+  max-height: 350px;
+  overflow-x: hidden;
+
+  @media screen and (max-width: $c-tablet-version-width) {
+    width: 140%;
+    max-height: 225px;
+  }
+
+  @media screen and (max-width: 1600px) {
+    width: 140%;
+  }
+
+
+  .auto-select-result-row {
+    &.selected {
+      background-color: #eaeaea;
+      }
+
+    &:hover {
+      background-color: #eaeaea;
+      }
+    }
+  }

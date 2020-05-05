@@ -1,0 +1,596 @@
+
+.hw-button-root {
+  @include allButtonsDefault($buttonStandardColor);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px 12px;
+  min-width: 120px;
+  font-size: $c-font-button-size;
+  background: none;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: theme-var($--color-primary-font);
+  box-shadow: $boxShadow;
+  font-weight: 500;
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 60px;
+    }
+
+  .hw-button-icon {
+    position: absolute;
+    top: 13px;
+    left: 7px;
+    font-size: $c-font-button-icon-size;
+    color: white;
+    }
+
+  &.outline {
+    color: theme-var($--color-primary);
+
+    .hw-button-icon {
+      top: 8px;
+      color: theme-var($--color-primary);
+      }
+    }
+
+
+  .hw-button-icon-right {
+    position: absolute;
+    top: 13px;
+    right: 7px;
+    font-size: $c-font-button-icon-size;
+    color: white;
+    }
+
+  &:focus {
+    outline: none;
+    }
+
+  &:hover {
+    // box-shadow: $boxShadow;
+    }
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+    }
+
+  &.primary {
+    @include allButtonsDefault(theme-var($--color-primary));
+
+    &:focus {
+
+      box-shadow: 0 0 0 0.2rem theme-var($--color-primary-outline);
+      }
+    }
+
+  &.secondary {
+    @include allButtonsDefault(theme-var($--color-secondary));
+    }
+
+  &.success {
+    @include allButtonsDefault($buttonSuccessColor);
+    }
+
+  &.danger {
+    @include allButtonsDefault($buttonDangerColor);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem theme-var($--color-danger-outline);
+      }
+    }
+
+  &.info {
+    @include allButtonsDefault($buttonInfoColor);
+    }
+
+  &.appDefaultColor {
+    @include allButtonsDefault($buttonColorDefaultApp);
+    }
+
+  &.sm {
+    //padding: $buttonSizeLg;
+    padding: 4px 8px;
+    font-size: $c-font-button-size - 2px;
+    min-width: 80px;
+    }
+
+  &.lg {
+    min-width: 150px;
+    padding: $buttonSizeLg;
+    }
+
+  &.glossy {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    }
+
+  }
+
+.hw-form-button-root {
+  min-width: 100%;
+  width: 100%;
+}
+
+.hw-button-action-root {
+  margin: auto;
+  max-width: 200px;
+
+  &.hw-button-action-space-1 {
+    margin: 3px auto;
+    }
+
+  &.hw-button-action-space-2 {
+    margin: 6px auto;
+    }
+
+  &.hw-button-action-space-3 {
+    margin: 9px auto;
+    }
+
+  &.hw-button-action-space-4 {
+    margin: 12px auto;
+    }
+
+  &.hw-button-action-space-5 {
+    margin: 15px auto;
+    }
+
+  &.hw-button-action-space-6 {
+    margin: 18px auto;
+    }
+
+  &.hw-button-action-space-7 {
+    margin: 21px auto;
+    }
+
+  &.hw-button-action-space-8 {
+    margin: 24px auto;
+    }
+
+  &.hw-button-action-space-9 {
+    margin: 27px auto;
+    }
+
+  &.hw-button-action-space-10 {
+    margin: 30px auto;
+    }
+  }
+
+
+.hw-button {
+  @include allButtonsDefault($buttonStandardColor);
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  font-size: $c-font-button-size;
+  background: none;
+  line-height: 1.3;
+  cursor: pointer;
+  border-radius: 3px;
+  color: theme-var($--color-primary-font);
+  font-weight: 500;
+
+  &.small-padding {
+    padding: 3px 5px;
+    }
+
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+    }
+
+  &.box-shadow {
+    box-shadow: $boxShadow;
+    }
+
+  &.outline {
+    color: theme-var($--color-primary);
+
+    .hw-button-icon {
+      top: 8px;
+      color: theme-var($--color-primary);
+      }
+    }
+
+  &.primary {
+    @include allButtonsDefault(theme-var($--color-primary));
+    }
+  }
+
+
+//FAB BUTTON
+
+
+.hw-fab-button-root {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: $c-font-button-size;
+  background: none;
+  color: theme-var($--color-primary-font);
+  width: 80px;
+  height: 40px;
+  border-bottom: 1px solid #ffffff;
+  border-radius: 3px;
+  @include default-button-shadow;
+
+  > svg {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7))
+    }
+
+  .fab-button-label {
+    text-shadow: 0px 1px 1px black;
+    padding-right: 4px;
+    font-size: 12px;
+
+    }
+
+
+  .hw-button-icon {
+    font-size: $c-font-button-icon-size;
+    color: white;
+
+
+    }
+
+  &.outline {
+    color: theme-var($--color-primary);
+
+    .hw-button-icon {
+      top: 8px;
+      color: theme-var($--color-primary);
+      }
+    }
+
+  &:focus {
+    outline: none;
+    }
+
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+    }
+
+  &.primary {
+    @include allFabButtonsDefault(theme-var($--linear-gradient-blue));
+    //@include default-application-gradient;
+    border-bottom: 1px solid white
+
+    }
+
+  &.secondary {
+    @include allFabButtonsDefault(theme-var($--color-secondary));
+    }
+
+  &.success {
+    @include allFabButtonsDefault($buttonSuccessColor);
+    }
+
+  &.danger {
+    @include allFabButtonsDefault($buttonDangerColor);
+    border-bottom: 1px solid white
+
+    }
+
+  &.info {
+    @include allFabButtonsDefault($buttonInfoColor);
+    }
+
+
+  &.appDefaultColor {
+    @include allButtonsDefault($buttonColorDefaultApp);
+    }
+
+
+  &.sm {
+    font-size: $c-font-button-size - 2px;
+    width: 60px;
+    height: 30px;
+    }
+
+  &.lg {
+    width: 80px;
+    height: 50px;
+
+    .hw-button-icon {
+      font-size: $c-font-button-size -2px;
+      filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+      }
+    }
+
+  &.calculation-fab-button {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+
+    .hw-button-icon {
+      font-size: $c-font-button-size - 6px;
+      filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+      }
+    }
+
+  &.glossy {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    }
+
+  .primary-button-blue-gradient {
+    box-shadow: 0 6px 4px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9);
+    border-bottom: 1px solid white;
+    @include default-application-gradient;
+    font-size: 12px;
+    min-width: 80px;
+    min-height: 25px;
+    }
+
+  }
+
+
+/** BUTTON ICON */
+
+.hw-button-icon-root {
+  @include allButtonsDefault($buttonStandardColor);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px 12px;
+  min-width: 60px;
+  font-size: $c-font-button-size;
+  background: none;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: theme-var($--color-primary-font);
+  box-shadow: $boxShadow;
+  font-weight: 500;
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 60px;
+    }
+
+  .hw-button-icon {
+    font-size: $c-font-button-icon-size;
+    color: white;
+    }
+
+  &.outline {
+    color: theme-var($--color-primary);
+
+    .hw-button-icon {
+      color: theme-var($--color-primary);
+      }
+    }
+
+  &:focus {
+    outline: none;
+    }
+
+  &:hover {
+    // box-shadow: $boxShadow;
+    }
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+    }
+
+  &.primary {
+    @include allButtonsDefault(theme-var($--color-primary));
+    }
+
+  &.secondary {
+    @include allButtonsDefault(theme-var($--color-secondary));
+    }
+
+  &.success {
+    @include allButtonsDefault($buttonSuccessColor);
+    }
+
+  &.danger {
+    @include allButtonsDefault($buttonDangerColor);
+    }
+
+  &.info {
+    @include allButtonsDefault($buttonInfoColor);
+    }
+
+  &.appDefaultColor {
+    @include allButtonsDefault($buttonColorDefaultApp);
+    }
+
+  &.sm {
+    padding: 4px 8px;
+    font-size: $c-font-button-size - 2px;
+    min-width: 35px;
+    min-height: 35px;
+    }
+
+  &.lg {
+    min-width: 80px;
+    padding: $buttonSizeLg;
+    }
+
+  &.glossy {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    }
+
+  }
+
+.hw-shortcut-button-root {
+  @include allButtonsDefault($buttonStandardColor);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px 12px;
+  min-width: 100px;
+  background: none;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: theme-var($--color-primary-font);
+  box-shadow: $boxShadow;
+  font-weight: 500;
+  border: 1px solid white;
+  height: 30px;
+  @media screen and (max-width: $c-mobile-version-width) {
+
+    }
+
+
+  & svg {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.7));
+
+    }
+
+  .hw-shortcut-label-command {
+    position: absolute;
+    bottom: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 9px;
+    left: 2px;
+    text-shadow: 0px 1px 1px black;
+    }
+
+  .hw-shortcut-label {
+    position: absolute;
+    top: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 8px;
+    left: 0px;
+    width: 100%;
+    text-shadow: 0px 1px 1px black;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    }
+
+  .hw-button-icon {
+    font-size: 11px;
+    color: white;
+    vertical-align: text-top;
+    }
+
+  &.outline {
+    color: theme-var($--color-primary);
+    background: transparent;
+
+    .hw-button-icon {
+      color: theme-var($--color-primary);
+      }
+    }
+
+  &:focus {
+    outline: none;
+    }
+
+  &:hover {
+    transform: scale(1.02);
+
+    }
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+    }
+
+  &.primary {
+    @include allButtonsDefault(theme-var($--color-primary));
+    }
+
+  &.secondary {
+    @include allButtonsDefault(theme-var($--color-secondary));
+    }
+
+  &.success {
+    @include allButtonsDefault($buttonSuccessColor);
+    }
+
+  &.danger {
+    @include allButtonsDefault($buttonDangerColor);
+    }
+
+  &.info {
+    @include allButtonsDefault($buttonInfoColor);
+    }
+
+  &.appDefaultColor {
+    @include allButtonsDefault($buttonColorDefaultApp);
+    }
+
+  &.sm {
+    font-size: $c-font-button-size - 2px;
+    min-width: 60px;
+    min-height: 30px;
+
+    svg {
+      margin-top: 4px;
+      font-size: 10px;
+      }
+    }
+
+  &.lg {
+    min-width: 80px;
+    padding: $buttonSizeLg;
+    }
+
+  &.glossy {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    }
+
+
+  &.hw-shortcut-button-white-version {
+    @extend .gradient-white-normal;
+
+   /* border-bottom: 1px solid rgba(182, 182, 182, 0.59);*/
+    box-shadow: 0px 0px 0px 0px white;
+
+    .hw-shortcut-label-command {
+      color: #1e5c83;
+      text-shadow: 0px 1px 1px white;
+      }
+
+    .hw-shortcut-label {
+      color: #1e5c83;
+      text-shadow: 0px 1px 1px white;
+      }
+
+    .hw-button-icon {
+      font-size: 11px;
+      color: #1e5c83;
+      vertical-align: text-top;
+      }
+
+
+    & svg {
+      filter: drop-shadow(2px 2px 2px rgba(240, 240, 240, 0.7));
+      }
+    }
+
+  }
+
+.shortcut-label {
+  color: inherit;
+  font-size: 8px;
+  position: absolute;
+  font-weight: 600;
+  top: 2px;
+  right: 3px;
+  text-transform: uppercase;
+  }
+
+.hw-button-border-color{
+  border: 1px solid theme-var($--color-primary);
+}

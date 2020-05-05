@@ -1,0 +1,325 @@
+//MAIN LAYOUT
+
+.hw-app-layout-main {
+  @include no-user-select();
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+
+
+  .hw-app-layout-main-root {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+    .hw-nav-bar-main {
+      //box-shadow: 10px 0px 18px -12px #747474;
+      height: 100%;
+      color: #3f3f3f;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      @include application-gradient_grey;
+      margin-left: 0px;
+
+      &.mini {
+        width: 57px;
+        transform: translateX(0px);
+
+        .hw-bar-list-item {
+          text-align: center;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+          min-width: 0;
+
+          > svg {
+            margin-right: 0;
+
+            &.hw-list-item-caret {
+              display: none;
+              }
+            }
+
+          .label {
+            display: none;
+            }
+
+          .hw-list-item-caret {
+            display: none;
+            }
+          }
+        }
+
+      &.opened {
+        width: 200px;
+        transform: translateX(0px);
+
+        .hw-nav-bar-main-close {
+          display: none;
+          }
+        }
+
+      &.hide {
+        &.opened {
+          width: 0px;
+          transform: translateX(-200px);
+          }
+
+        width: 0px;
+        transform: translateX(-65px);
+        }
+
+      .hw-bar-list-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 8px 0;
+
+
+        .hw-bar-list-item {
+          color: inherit;
+          cursor: pointer;
+          min-height: 48px;
+          width: 100%;
+          padding: 8px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+
+
+          > svg {
+            color: rgba(73, 89, 100, 0.88);
+            margin-right: 0;
+            font-size: 14px;
+            }
+
+          .label {
+            color: rgba(0, 0, 0, 0.72);
+            margin-left: 16px;
+            width: auto;
+            min-width: 0;
+            max-width: 100%;
+            text-shadow: 0px 2px 2px white;
+            padding-left: 10px;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+
+
+            flex: 1;
+
+            a {
+              text-decoration: none;
+              }
+
+            &:hover {
+
+              /*   transition: all 0.3s ease;
+                 transform: scale(1.08);*/
+              }
+            }
+
+          &:hover {
+            z-index: 300;
+            border-right: 4px solid rgba(73, 89, 100, 0.88);
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+
+            }
+
+          &.active {
+
+            > svg {
+              transform: scale(1.4);
+              color: #174f75;
+              filter: none;
+
+
+              }
+
+
+            }
+          }
+        }
+
+      .hw-nav-bar-main-close {
+        position: fixed;
+        display: block;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10001;
+
+        &.show {
+          @include default-application-gradient;
+          display: flex;
+          top: 15px;
+          right: -10px;
+          z-index: 3500;
+          cursor: pointer;
+          border-radius: 100%;
+          width: 33px;
+          height: 33px;
+          border: 1px solid transparent;
+          justify-content: center;
+          align-items: center;
+
+          > svg {
+            display: block;
+            }
+
+          }
+
+        > svg {
+          display: none;
+          color: white;
+          }
+
+        }
+
+      @media screen and (max-width: $c-mobile-version-width) {
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 2px;
+        opacity: 0.7;
+        position: absolute;
+        z-index: 1001;
+        margin-left: 0;
+        .hw-bar-list {
+          position: relative;
+          right: 0;
+          top: 45px;
+          }
+
+        &.mini,
+        &.opened {
+          width: 200px;
+
+          &.hide {
+            width: 0;
+            transform: translateX(-200px);
+            }
+
+          .hw-bar-list-item {
+            > .label {
+              display: flex;
+              }
+            }
+          }
+
+
+        .hw-nav-bar-main-close {
+          display: none;
+
+          &.show {
+            display: none;
+            }
+          }
+
+
+        }
+
+      }
+
+
+    .hw-app-layout-main-data {
+      &.mini {
+        width: calc(100% - 60px);
+        height: calc(100% - 30px);
+        @media screen and (max-width: $c-mobile-version-width) {
+          width: 100%;
+          }
+        }
+
+      &.opened {
+        width: calc(100% - 200px);
+        height: calc(100% - 30px);
+        @media screen and (max-width: $c-mobile-version-width) {
+          width: 100%;
+          }
+        }
+
+      &.hide {
+        width: calc(100%);
+        height: calc(100% - 30px);
+        @media screen and (max-width: $c-mobile-version-width) {
+          width: 100%;
+          }
+        }
+
+      height: calc(100%);
+      }
+    }
+
+
+  .hw-app-footer {
+    @include default-application-gradient;
+    color: #fffefd;
+    z-index: 1001;
+    text-shadow: 0px 1px 1px black;
+    }
+
+  }
+
+
+.hw-collapse-container {
+  display: none;
+  padding: 3px 0px;
+  width: 100%;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+
+  &.active {
+    display: block;
+    padding-left: 10px;
+
+
+    }
+
+  .hw-collapse-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .hw-bar-list-item {
+      margin-top: 2px;
+
+      }
+    }
+
+
+  }
+
+
+.hw-list-item-caret {
+  top: 3px;
+  color: inherit;
+  float: right;
+  width: 30px;
+  height: 24px;
+  opacity: 0;
+  position: inherit;
+  text-align: center;
+  margin-right: -5px;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: none;
+  transition: all 0.3s ease-in;
+
+  &.active {
+    opacity: 0.8;
+    }
+  }

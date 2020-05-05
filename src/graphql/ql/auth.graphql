@@ -1,0 +1,26 @@
+query authPasswordRecovery($email:String!) {
+    authPasswordRecovery( email:$email )
+}
+
+query authLogin($data: AccountTypeLogin!) {
+    authLogin ( data: $data) {
+        token
+    }
+}
+
+query authLogged {
+    authLogged {
+        ...accountDetails
+    }
+}
+
+mutation authPasswordChange ( $data: AccountTypeChangePassword!) {
+    authPasswordChange ( data: $data )
+}
+mutation authRegistration ($data: AccountTypeRegister!) {
+    authRegistration( data: $data )
+}
+
+mutation authConfirmation($key:String!) {
+    authConfirmation( key: $key )
+}

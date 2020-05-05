@@ -1,0 +1,24 @@
+mutation insertReceipt($data: ReceiptClassTypeInsert!) {
+    receipt: insertReceipt(data:$data) {
+        ...receiptDetails
+    }
+}
+
+query receipt($id: String!) {
+    data: receipt(id: $id){
+        ...receiptDetails
+    }
+}
+
+query receipts($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data:receipts(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...receiptDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+

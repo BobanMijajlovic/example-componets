@@ -1,0 +1,19 @@
+query users($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting ) {
+    users(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort) {
+        items{
+            ...userDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query  user($id: String!) {
+    user(id: $id) {
+        ...userDetails
+        accounts {
+            ...accountDetails
+        }
+    }
+}

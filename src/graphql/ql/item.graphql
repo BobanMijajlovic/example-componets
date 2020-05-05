@@ -1,0 +1,32 @@
+query item($id: String!) {
+    data:item(id: $id) {
+        ...itemDetails
+    }
+}
+
+query items($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data:items(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...itemDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+
+mutation insertItem($data: ItemClassTypeInsert!) {
+    item: insertItem(data: $data){
+        ...itemDetails
+    }
+}
+
+
+mutation updateItem($id:Int!, $data: ItemClassTypeUpdate!) {
+    item:updateItem(id:$id, data: $data) {
+        ...itemDetails
+    }
+}
+

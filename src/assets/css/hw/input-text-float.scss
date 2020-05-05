@@ -1,0 +1,67 @@
+$fontInputSize: 14px;
+$baseComponentColor: #1e5c83;
+$colorError: #b52025;
+
+.hw-input-text-float-root {
+
+  font-size: $fontInputSize;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  position: relative;
+
+
+  .hw-input-text-float {
+    border: 0px;
+    border-bottom: 2px solid lighten($baseComponentColor, 10%);
+    box-shadow: 0px 0px 0px transparent;
+    outline: none;
+    margin: $fontInputSize*1.2 0px 1px 12px;
+
+    &:focus {
+      border-bottom-color: darken($baseComponentColor, 10%);
+      box-shadow: 0px 3px 2px -2px #777;
+      }
+    }
+
+  .hw-input-label-float {
+    opacity: 0.9;
+    text-shadow: 0.5px 0px 0.5px #444;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    transform: translate(12px, 12px) scale(1);
+
+
+    &.focused {
+      transform: translate(12px, 0px) scale(0.75);
+
+      }
+    }
+
+
+  .hw-input-help-error-text-float {
+    font-size: $fontInputSize *0.8;
+    opacity: 0.8;
+    margin: 2px 0px 2px 16px;
+    overflow: hidden;
+    }
+
+  &.error {
+    .hw-input-help-error-text-float,
+    .hw-input-label-float {
+      color: darken($colorError, 10%);
+      }
+
+    .hw-input-text-float {
+      color: $colorError;
+      border-bottom-color: darken($colorError, 10%);
+      }
+    }
+
+
+  }
+
+
+
+

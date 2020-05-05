@@ -1,0 +1,157 @@
+;
+
+.hw-main-switch {
+
+  input {
+    margin: 4px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+    }
+
+  label {
+    max-width: 100%;
+    }
+
+
+  .hw-switch {
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+    height: 34px;
+    z-index: 1000;
+
+    &.input {
+      display: none;
+      }
+
+    &.off {
+      .switch-group {
+        left: -100%;
+        }
+
+      border-color: #4b4b4b;
+      box-shadow: -0.5px 0px 2px black;
+      }
+
+    }
+
+  .switch-group {
+    position: absolute;
+    width: 200%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: left 0.35s;
+    -webkit-transition: left 0.35s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    }
+
+
+  .switch-handle {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 100%;
+    width: 0px;
+    border-width: 0 1px;
+
+    }
+
+
+  .hw-switch-default {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    &.active {
+      outline: 0;
+      color: #333;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.28), inset 0 -3px 5px rgba(0, 0, 0, 0.28);
+      }
+
+    }
+
+  .hw-primary {
+    @include allButtonsDefault(theme-var($--color-primary));
+    background: theme-var($--linear-gradient-blue);
+    text-shadow: $textShadowDefault;
+    font-weight: normal;
+    box-shadow: $switchActiveShadow;
+
+    &.off {
+      &:hover {
+        box-shadow: 0 6px 6px -6px $greyColor, -7px 0 6px -7px $greyColor;;
+        }
+      }
+    }
+
+  .switch-on {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+
+    &.hw-switch-default {
+      padding-right: 24px
+      }
+    }
+
+  .switch-off {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+
+    &.hw-switch-default {
+      padding-left: 24px;
+      }
+
+    text-shadow: none;
+    }
+
+  .hw-default {
+    color: $colorWhite;
+    background-color: $colorWhite;
+    border-color: #ccc;
+
+    &:active {
+      color: $colorWhite;
+      border-color: #adadad;
+      }
+
+    &:hover {
+      color: #333;
+      border-color: #adadad;
+      text-shadow: 0px 1px 1px #515151;
+      }
+    }
+  }
+
+

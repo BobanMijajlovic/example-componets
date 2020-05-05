@@ -1,0 +1,77 @@
+$gradientRowList: theme-var($--color-primary) 0%, theme-var($--color-secondary) 100%;
+
+.hw-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15px;
+
+  .hw-grid-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #eee;
+    line-height: 1.5;
+
+    &:nth-child(even) {
+      background-color: #f2f2f2;
+
+      &:hover {
+        background-color: #e8e8e8;
+        cursor: pointer;
+
+        }
+
+      }
+
+    &:hover {
+      background-color: #fbfbfb;
+      cursor: pointer;
+      }
+
+
+    &.hw-grid-header {
+      @include component-border-basic();
+
+      > div {
+        @include default-application-gradient;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0px 1px 2px black;
+        box-shadow: 0px 3px 8px -4px black;
+        }
+      }
+
+    > div {
+      flex: 1.5;
+      border-right: 1px solid #eee;
+      text-align: center;
+      padding: 5px;
+      font-size: 15px;
+
+      &:last-child {
+        border-right: 0;
+        }
+      }
+    }
+  }
+
+.hw-client-contact-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > svg {
+    color: theme-var($--color-primary);
+    filter: drop-shadow(-2px 2px 0px white);
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      }
+    }
+  }

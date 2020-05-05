@@ -1,0 +1,23 @@
+query calculation($id: String!) {
+    data:calculation(id: $id) {
+        ...calculationDetails
+    }
+}
+
+query calculations($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ){
+    data:calculations(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...calculationDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+mutation insertCalculation($data:CalculationClassTypeInsert!) {
+    data:insertCalculation(data:$data) {
+        ...calculationDetails
+    }
+}

@@ -1,0 +1,10 @@
+query accounts($offset: Int,$limit: Int ){
+    data:accounts(offset: $offset,limit:$limit){
+        items{
+            ...accountDetails
+        }
+        count
+        perPage
+        page
+    }
+}

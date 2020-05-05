@@ -1,0 +1,167 @@
+fragment userDetails on User {
+    id
+    description
+    status
+    createdAt
+    updatedAt
+}
+
+fragment  accountDetails on Account {
+    id
+    userName
+    email
+    status
+    userId
+    createdAt
+    updatedAt
+}
+
+
+fragment clientDetails on Client {
+    id
+    taxNumber
+    clientNumber
+    description
+    descriptionShort
+    flag
+    status
+}
+
+
+fragment addressDetails on Address {
+    id
+    street
+    city
+    state
+    zipCode
+    description
+    flag
+    createdAt
+    updatedAt
+}
+
+fragment contactDetails on Contact {
+    id
+    flag
+    value
+    description
+    status
+    createdAt
+    updatedAt
+}
+
+fragment itemDetails on Item {
+    id
+    barCode
+    sku
+    description
+    shortDescription
+    price
+    vat
+    unit
+    group
+}
+
+
+
+
+fragment receiptDetails on Receipt {
+    id
+    receiptNumber
+    items{
+        id
+        item{
+            ...itemDetails
+        }
+        quantity
+        price
+        vat
+        vatValue
+    }
+    payments{
+        id
+        type
+        value
+    }
+    createdAt
+}
+
+
+
+
+fragment settingsDetails on Settings {
+    id
+    type
+    key
+    value
+    valueJSON
+    status
+    createdAt
+    updatedAt
+}
+
+fragment supplierItemDeatils on SupplierItem {
+    id
+    item{
+        ...itemDetails
+    }
+    code
+}
+
+
+fragment calculationItemDetails on  CalculationItem {
+     id
+     purchasePrice
+     sellingPrice
+     quantity
+     discountValue
+     discountPercent
+     extraCost
+     item {
+          ...itemDetails
+     }
+     vat
+     vatValue
+     status
+}
+
+
+fragment calculationDetails on Calculation {
+   id
+   number
+   dateOfIssue
+   totalInvoiceTax
+   totalInvoiceFinance
+   extraExpenseTotal
+   extraExpenseTax
+   totalPurchaseFinance
+   totalSellingFinance
+   supplier{
+      ...clientDetails
+   }
+   status
+   items {
+      ...calculationItemDetails
+    }
+   discount {
+        id
+        value
+        description
+        percent
+   }
+   dueDate {
+     id
+     date
+     value
+     status
+    }
+   additionalCosts {
+      id
+      value
+      vat
+      vatValue
+      description
+      status
+   }
+
+}
