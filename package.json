@@ -41,7 +41,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
     "typescript": "^3.8.3",
-    "validator": "12.0.0",
+    "validator": "13.7.0",
     "xstate": "^4.9.0"
   },
   "scripts": {
